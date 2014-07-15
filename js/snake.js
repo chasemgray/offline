@@ -82,17 +82,19 @@
     return document.removeChild(canvas);
   };
 
-  setTimeout(function() {
-    if (Offline.getOption('game') && (document.addEventListener != null)) {
-      Offline.on('down', show);
-      Offline.on('up', hide);
-      return Offline.on('reconnect:failure', function() {
-        fill = '#ec8787';
-        return setTimeout(function() {
-          return fill = 'black';
-        }, 2000);
-      });
-    }
-  }, 0);
+  Offline.initSnake(function() {
+    return setTimeout(function() {
+      if (Offline.getOption('game') && (document.addEventListener != null)) {
+        Offline.on('down', show);
+        Offline.on('up', hide);
+        return Offline.on('reconnect:failure', function() {
+          fill = '#ec8787';
+          return setTimeout(function() {
+            return fill = 'black';
+          }, 2000);
+        });
+      }
+    }, 0);
+  });
 
 }).call(this);

@@ -111,6 +111,7 @@ init = ->
     flashClass 'offline-ui-reconnect-succeeded-5s', 5
 
 Offline.init = init;
+
 # if document.readyState is 'complete'
 #   init()
 # else if document.addEventListener?

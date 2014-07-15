@@ -1,3 +1,4 @@
+
 canvas = dot = score = speed = stop = snake = randDot = fill = null
 
 render = ->
@@ -80,13 +81,14 @@ hide = ->
 
   document.removeChild canvas
 
-setTimeout ->
-  if Offline.getOption('game') and document.addEventListener?
-    Offline.on 'down', show
-    Offline.on 'up', hide
-    Offline.on 'reconnect:failure', ->
-      fill = '#ec8787'
-      setTimeout ->
-        fill = 'black'
-      , 2000
-, 0
+Offline.initSnake ->
+  setTimeout ->
+    if Offline.getOption('game') and document.addEventListener?
+      Offline.on 'down', show
+      Offline.on 'up', hide
+      Offline.on 'reconnect:failure', ->
+        fill = '#ec8787'
+        setTimeout ->
+          fill = 'black'
+        , 2000
+  , 0
