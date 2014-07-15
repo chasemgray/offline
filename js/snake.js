@@ -82,7 +82,7 @@
     return document.removeChild(canvas);
   };
 
-  Offline.initSnake(function() {
+  Offline.initSnake = function() {
     return setTimeout(function() {
       if (Offline.getOption('game') && (document.addEventListener != null)) {
         Offline.on('down', show);
@@ -95,6 +95,6 @@
         });
       }
     }, 0);
-  });
+  };
 
 }).call(this);

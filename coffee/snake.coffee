@@ -81,7 +81,7 @@ hide = ->
 
   document.removeChild canvas
 
-Offline.initSnake ->
+Offline.initSnake = ->
   setTimeout ->
     if Offline.getOption('game') and document.addEventListener?
       Offline.on 'down', show
