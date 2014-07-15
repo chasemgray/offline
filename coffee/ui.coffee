@@ -110,16 +110,17 @@ init = ->
     flashClass 'offline-ui-reconnect-succeeded-2s', 2
     flashClass 'offline-ui-reconnect-succeeded-5s', 5
 
-if document.readyState is 'complete'
-  init()
-else if document.addEventListener?
-  document.addEventListener 'DOMContentLoaded', init, false
-else
-  # IE8
-
-  _onreadystatechange = document.onreadystatechange
-  document.onreadystatechange = ->
-    if document.readyState is 'complete'
-      init()
-
-    _onreadystatechange?(arguments...)
+Offline.init = init;
+# if document.readyState is 'complete'
+#   init()
+# else if document.addEventListener?
+#   document.addEventListener 'DOMContentLoaded', init, false
+# else
+#   # IE8
+#
+#   _onreadystatechange = document.onreadystatechange
+#   document.onreadystatechange = ->
+#     if document.readyState is 'complete'
+#       init()
+#
+#     _onreadystatechange?(arguments...)
